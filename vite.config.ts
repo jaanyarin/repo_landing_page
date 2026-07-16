@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/repo_landing_page/',
+  base: process.env.NODE_ENV === 'production' ? '/repo_landing_page/' : '/',
 })
