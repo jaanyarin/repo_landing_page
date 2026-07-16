@@ -48,6 +48,33 @@ const projects = [
     tags: ['Power Apps', 'SQL Server'],
     images: [`${base}img/registro_pre_acondicionamiento(1).png`, `${base}img/registro_pre_acondicionamiento(2).png`, `${base}img/registro_pre_acondicionamiento(3).png`],
   },
+  {
+    id: 'brotacion', category: 'Producción agrícola', title: 'Evaluación y seguimiento de brotación',
+    text: 'Aplicación de campo para registrar evaluaciones de brotación por lote, válvula, planta y cuadrante con información estructurada.',
+    problem: 'Las evaluaciones de brotación requerían consolidar registros manuales de múltiples plantas y cuadrantes, aumentando el riesgo de omisiones, duplicados y errores de digitación.',
+    solution: 'Aplicación Power Apps que organiza la captura por secuencias de plantas y cuadrantes, aplica validaciones y centraliza los resultados para el seguimiento de campaña.',
+    benefits: ['Registro por planta y cuadrante', 'Generación guiada de secuencias', 'Validación de registros duplicados', 'Trazabilidad por lote y fecha'],
+    tags: ['Power Apps', 'SQL Server'],
+    images: [`${base}img/evaluacion_de_brotacion(1).png`, `${base}img/evaluacion_de_brotacion(2).png`, `${base}img/evaluacion_de_brotacion(3).png`],
+  },
+  {
+    id: 'crecimiento-brote', category: 'Producción agrícola', title: 'Evaluación de crecimiento de brote y racimo',
+    text: 'Solución móvil para registrar mediciones de brotes y racimos, observaciones y datos de evaluación directamente en campo.',
+    problem: 'Las mediciones de crecimiento se recopilaban en formatos separados, dificultando comparar evaluaciones, conservar el orden de captura y disponer de datos consolidados.',
+    solution: 'Aplicación Power Apps conectada a SQL Server para registrar longitud de brotes y racimos, mantener la secuencia de evaluación y consultar información histórica.',
+    benefits: ['Captura de mediciones en campo', 'Orden estructurado de evaluación', 'Registro de observaciones', 'Historial centralizado por campaña'],
+    tags: ['Power Apps', 'SQL Server'],
+    images: [`${base}img/evaluacion_de_crecimiento de_brote(1).png`, `${base}img/evaluacion_de_crecimiento de_brote(2).png`, `${base}img/evaluacion_de_crecimiento de_brote(3).png`],
+  },
+  {
+    id: 'registro-peso', category: 'Producción y calidad', title: 'Registro de peso de producto terminado',
+    text: 'Aplicación para registrar pesos, formatos, proveedores y datos productivos con validaciones orientadas al control de calidad.',
+    problem: 'El control de pesos dependía de registros manuales y archivos dispersos, dificultando validar formatos, consultar históricos y detectar desviaciones durante la operación.',
+    solution: 'Aplicación Power Apps conectada a SQL Server que guía el registro de pesos y formatos, aplica parámetros configurables y centraliza la información del producto terminado.',
+    benefits: ['Registro móvil de pesos', 'Validación de formatos y parámetros', 'Consulta histórica de registros', 'Información disponible para análisis'],
+    tags: ['Power Apps', 'SQL Server', 'Power Automate'],
+    images: [`${base}img/registro_de_peso(1).png`, `${base}img/registro_de_peso(2).png`, `${base}img/registro_de_peso(3).png`],
+  },
 ]
 
 const technologies = ['Power Apps', 'Power Automate', 'Power BI', 'SQL Server', 'SharePoint', 'React', 'React Native', 'TypeScript', 'Java', 'Quarkus', 'Docker', 'GitHub']
