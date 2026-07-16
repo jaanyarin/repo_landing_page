@@ -75,6 +75,15 @@ const projects = [
     tags: ['Power Apps', 'SQL Server', 'Power Automate'],
     images: [`${base}img/registro_de_peso(1).png`, `${base}img/registro_de_peso(2).png`, `${base}img/registro_de_peso(3).png`],
   },
+  {
+    id: 'floracion-cuajado', category: 'Producción agrícola', title: 'Evaluación de floración y cuajado',
+    text: 'Aplicación móvil para registrar estados de floración, cuajado y calidad de racimos por lote, planta y cuadrante directamente en campo.',
+    problem: 'La evaluación de floración y cuajado se realizaba mediante registros manuales, dificultando mantener criterios homogéneos, consolidar resultados y comparar el avance entre lotes y campañas.',
+    solution: 'Aplicación Power Apps conectada a SQL Server que estructura la captura por planta y cuadrante, permite clasificar el estado del racimo y centraliza la información para seguimiento productivo.',
+    benefits: ['Registro por planta y cuadrante', 'Clasificación estandarizada del racimo', 'Cálculo y consolidación de resultados', 'Trazabilidad por lote, fecha y campaña'],
+    tags: ['Power Apps', 'SQL Server'],
+    images: [`${base}img/evaluacion_floracion_cuajado(1).png`, `${base}img/evaluacion_floracion_cuajado(2).png`, `${base}img/evaluacion_floracion_cuajado(3).png`],
+  },
 ]
 
 const technologies = ['Power Apps', 'Power Automate', 'Power BI', 'SQL Server', 'SharePoint', 'React', 'React Native', 'TypeScript', 'Java', 'Quarkus', 'Docker', 'GitHub']
