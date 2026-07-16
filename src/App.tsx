@@ -1,24 +1,11 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { FormEvent, useState } from 'react'
+import { motion } from 'framer-motion'
 import {
-  ArrowRight,
-  BarChart3,
-  Bot,
-  CheckCircle2,
-  ChevronRight,
-  Code2,
-  Database,
-  Download,
-  Mail,
-  Menu,
-  MessageCircle,
-  MonitorSmartphone,
-  ShieldCheck,
-  Sparkles,
-  X,
-  Zap,
-} from "lucide-react";
-import "./index.css";
+  ArrowRight, BarChart3, Bot, CheckCircle2, ChevronRight, Code2,
+  Database, Download, Github, Linkedin, LoaderCircle, Mail, Menu,
+  MessageCircle, MonitorSmartphone, Send, ShieldCheck, Sparkles, X, Zap,
+} from 'lucide-react'
+import './index.css'
 
 const services = [
   {
@@ -112,6 +99,84 @@ const technologies = [
   "Docker",
   "GitHub",
 ];
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error' | 'configuration-error'
+
+function ContactForm() {
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT?.trim()
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    if (!endpoint) {
+      setStatus('configuration-error')
+      return
+    }
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    if (formData.get('_gotcha')) return
+
+    setStatus('sending')
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      })
+
+      if (!response.ok) throw new Error('No se pudo enviar el formulario')
+
+      form.reset()
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  return (
+    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+      <input className="form-honeypot" type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+      <input type="hidden" name="_subject" value="Nueva consulta desde el portafolio" />
+      <input type="hidden" name="source" value="Landing Page - GitHub Pages" />
+
+      <div className="form-row">
+        <label>Nombre completo<input name="name" required minLength={2} maxLength={80} placeholder="Tu nombre" autoComplete="name" /></label>
+        <label>Empresa<input name="company" maxLength={100} placeholder="Empresa u organización" autoComplete="organization" /></label>
+      </div>
+      <div className="form-row">
+        <label>Correo electrónico<input type="email" name="email" required maxLength={120} placeholder="correo@empresa.com" autoComplete="email" /></label>
+        <label>WhatsApp<input type="tel" name="phone" maxLength={30} placeholder="Número de contacto" autoComplete="tel" /></label>
+      </div>
+      <label>¿Qué solución necesitas?
+        <select name="service" required defaultValue="">
+          <option value="" disabled>Selecciona una opción</option>
+          <option>Aplicación Power Apps</option>
+          <option>Automatización Power Automate</option>
+          <option>Dashboard Power BI</option>
+          <option>Integración SQL Server</option>
+          <option>Consultoría</option>
+          <option>Otra solución</option>
+        </select>
+      </label>
+      <label>Cuéntame sobre tu proyecto<textarea name="message" required minLength={20} maxLength={2000} rows={5} placeholder="Describe brevemente el proceso, problema y resultado que esperas..." /></label>
+
+      <button className="button button-primary" type="submit" disabled={status === 'sending'}>
+        {status === 'sending' ? <><LoaderCircle className="spin" size={18} /> Enviando...</> : <><Send size={18} /> Enviar solicitud</>}
+      </button>
+
+      <div className="form-feedback" aria-live="polite">
+        {status === 'success' && <p className="form-success"><CheckCircle2 /> Tu solicitud fue enviada correctamente. Te responderé lo antes posible.</p>}
+        {status === 'error' && <p className="form-error">No se pudo enviar el mensaje. Inténtalo nuevamente o escríbeme por WhatsApp.</p>}
+        {status === 'configuration-error' && <p className="form-error">El formulario aún no tiene configurado el endpoint de Formspree.</p>}
+        {status === 'idle' && <p className="form-note">Tus datos serán utilizados únicamente para responder esta consulta.</p>}
+      </div>
+    </form>
+  )
+}
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -486,75 +551,16 @@ function App() {
                   <strong>+51 980 029 687</strong>
                 </span>
               </a>
-              <a href="mailto:alejandro.anyarin@gmail.com">
+              <a href="mailto:alejandro.anyarin.dev@gmail.com">
                 <Mail />
                 <span>
                   <small>Correo</small>
-                  <strong>alejandro.anyarin@gmail.com</strong>
+                  <strong>alejandro.anyarin.dev@gmail.com</strong>
                 </span>
               </a>
             </div>
           </div>
-          <form
-            className="contact-form"
-            action="https://formspree.io/f/your-form-id"
-            method="POST"
-          >
-            <div className="form-row">
-              <label>
-                Nombre completo
-                <input name="name" required placeholder="Tu nombre" />
-              </label>
-              <label>
-                Empresa
-                <input name="company" placeholder="Empresa u organización" />
-              </label>
-            </div>
-            <div className="form-row">
-              <label>
-                Correo electrónico
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="correo@empresa.com"
-                />
-              </label>
-              <label>
-                WhatsApp
-                <input name="phone" placeholder="Número de contacto" />
-              </label>
-            </div>
-            <label>
-              ¿Qué solución necesitas?
-              <select name="service" required defaultValue="">
-                <option value="" disabled>
-                  Selecciona una opción
-                </option>
-                <option>Aplicación Power Apps</option>
-                <option>Automatización Power Automate</option>
-                <option>Dashboard Power BI</option>
-                <option>Integración SQL Server</option>
-                <option>Consultoría</option>
-              </select>
-            </label>
-            <label>
-              Cuéntame sobre tu proyecto
-              <textarea
-                name="message"
-                required
-                rows={5}
-                placeholder="Describe brevemente el proceso o problema..."
-              />
-            </label>
-            <button className="button button-primary" type="submit">
-              Enviar solicitud <ArrowRight size={18} />
-            </button>
-            <small>
-              Debes reemplazar el ID de Formspree antes de publicar el
-              formulario.
-            </small>
-          </form>
+          <ContactForm />
         </section>
       </main>
 
@@ -576,10 +582,10 @@ function App() {
           >
             <span className="social-icon" aria-hidden="true">GH</span>
           </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/jaanyarin/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <span className="social-icon" aria-hidden="true">in</span>
           </a>
-          <a href="mailto:alejandro.anyarin@gmail.com" aria-label="Correo">
+          <a href="mailto:alejandro.anyarin.dev@gmail.com" aria-label="Correo">
             <Mail />
           </a>
         </div>
