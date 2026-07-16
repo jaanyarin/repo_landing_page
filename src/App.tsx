@@ -1,8 +1,9 @@
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
+import type { FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import {
   ArrowRight, BarChart3, Bot, CheckCircle2, ChevronRight, Code2,
-  Database, Download, Github, Linkedin, LoaderCircle, Mail, Menu,
+  Database, Download, LoaderCircle, Mail, Menu,
   MessageCircle, MonitorSmartphone, Send, ShieldCheck, Sparkles, X, Zap,
 } from 'lucide-react'
 import './index.css'
@@ -551,11 +552,11 @@ function App() {
                   <strong>+51 980 029 687</strong>
                 </span>
               </a>
-              <a href="mailto:alejandro.anyarin.dev@gmail.com">
+              <a href="mailto:alejandro.anyarin@gmail.com">
                 <Mail />
                 <span>
                   <small>Correo</small>
-                  <strong>alejandro.anyarin.dev@gmail.com</strong>
+                  <strong>alejandro.anyarin@gmail.com</strong>
                 </span>
               </a>
             </div>
@@ -585,7 +586,7 @@ function App() {
           <a href="https://www.linkedin.com/in/jaanyarin/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <span className="social-icon" aria-hidden="true">in</span>
           </a>
-          <a href="mailto:alejandro.anyarin.dev@gmail.com" aria-label="Correo">
+          <a href="mailto:alejandro.anyarin@gmail.com" aria-label="Correo">
             <Mail />
           </a>
         </div>
