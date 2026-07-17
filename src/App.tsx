@@ -21,96 +21,19 @@ const services = [
 const base = import.meta.env.BASE_URL
 
 const projects = [
-  {
-    id: 'averias', category: 'Mantenimiento y operaciones', title: 'Gestión y reporte de averías',
-    text: 'Aplicación para registrar incidencias operativas, clasificar componentes afectados y mejorar la comunicación con mantenimiento.',
-    problem: 'Los avisos de averías se comunicaban mediante llamadas, mensajes o registros no estructurados, dificultando el seguimiento y el análisis de incidencias recurrentes.',
-    solution: 'Solución desarrollada en Power Apps para registrar, clasificar y consultar averías, centralizando información técnica, evidencias y responsables.',
-    benefits: ['Registro inmediato de incidencias', 'Clasificación por sistema y componente', 'Trazabilidad de usuario y fecha', 'Consulta histórica para análisis'],
-    tags: ['Power Apps', 'Power Automate', 'SQL Server'],
-    images: [`${base}img/aviso_de_averias(1).png`, `${base}img/aviso_de_averias(2).png`, `${base}img/aviso_de_averias(3).png`],
-  },
-  {
-    id: 'racimos', category: 'Producción agrícola', title: 'Registro y evaluación de racimos por planta',
-    text: 'Aplicación móvil para capturar evaluaciones productivas directamente en campo, organizadas por lote, variedad y planta.',
-    problem: 'Las evaluaciones se registraban en formatos manuales o archivos separados, dificultando la consolidación y trazabilidad de la información de campo.',
-    solution: 'Aplicación Power Apps para digitalizar evaluaciones productivas y centralizar los registros por fundo, lote, variedad y planta.',
-    benefits: ['Captura móvil en campo', 'Validaciones de datos', 'Información centralizada', 'Seguimiento agronómico estructurado'],
-    tags: ['Power Apps', 'SQL Server'],
-    images: [`${base}img/racimo_por_planta(1).png`, `${base}img/racimo_por_planta(2).png`, `${base}img/racimo_por_planta(3).png`],
-  },
-  {
-    id: 'preacondicionamiento', category: 'Operaciones y calidad', title: 'Control del proceso de preacondicionamiento',
-    text: 'Solución para digitalizar registros operativos, aplicar validaciones y centralizar la información del proceso.',
-    problem: 'La información se registraba en formatos manuales o archivos independientes, dificultando su revisión y disponibilidad para otras áreas.',
-    solution: 'Aplicación Power Apps para capturar parámetros operativos, validar campos y mantener un historial centralizado del proceso.',
-    benefits: ['Registro operativo guiado', 'Campos y reglas validadas', 'Historial de actividades', 'Datos preparados para reportes'],
-    tags: ['Power Apps', 'SQL Server'],
-    images: [`${base}img/registro_pre_acondicionamiento(1).png`, `${base}img/registro_pre_acondicionamiento(2).png`, `${base}img/registro_pre_acondicionamiento(3).png`],
-  },
-  {
-    id: 'brotacion', category: 'Producción agrícola', title: 'Evaluación y seguimiento de brotación',
-    text: 'Aplicación de campo para registrar evaluaciones de brotación por lote, válvula, planta y cuadrante con información estructurada.',
-    problem: 'Las evaluaciones de brotación requerían consolidar registros manuales de múltiples plantas y cuadrantes, aumentando el riesgo de omisiones, duplicados y errores de digitación.',
-    solution: 'Aplicación Power Apps que organiza la captura por secuencias de plantas y cuadrantes, aplica validaciones y centraliza los resultados para el seguimiento de campaña.',
-    benefits: ['Registro por planta y cuadrante', 'Generación guiada de secuencias', 'Validación de registros duplicados', 'Trazabilidad por lote y fecha'],
-    tags: ['Power Apps', 'SQL Server'],
-    images: [`${base}img/evaluacion_de_brotacion(1).png`, `${base}img/evaluacion_de_brotacion(2).png`, `${base}img/evaluacion_de_brotacion(3).png`],
-  },
-  {
-    id: 'crecimiento-brote', category: 'Producción agrícola', title: 'Evaluación de crecimiento de brote y racimo',
-    text: 'Solución móvil para registrar mediciones de brotes y racimos, observaciones y datos de evaluación directamente en campo.',
-    problem: 'Las mediciones de crecimiento se recopilaban en formatos separados, dificultando comparar evaluaciones, conservar el orden de captura y disponer de datos consolidados.',
-    solution: 'Aplicación Power Apps conectada a SQL Server para registrar longitud de brotes y racimos, mantener la secuencia de evaluación y consultar información histórica.',
-    benefits: ['Captura de mediciones en campo', 'Orden estructurado de evaluación', 'Registro de observaciones', 'Historial centralizado por campaña'],
-    tags: ['Power Apps', 'SQL Server'],
-    images: [`${base}img/evaluacion_de_crecimiento de_brote(1).png`, `${base}img/evaluacion_de_crecimiento de_brote(2).png`, `${base}img/evaluacion_de_crecimiento de_brote(3).png`],
-  },
-  {
-    id: 'registro-peso', category: 'Producción y calidad', title: 'Registro de peso de producto terminado',
-    text: 'Aplicación para registrar pesos, formatos, proveedores y datos productivos con validaciones orientadas al control de calidad.',
-    problem: 'El control de pesos dependía de registros manuales y archivos dispersos, dificultando validar formatos, consultar históricos y detectar desviaciones durante la operación.',
-    solution: 'Aplicación Power Apps conectada a SQL Server que guía el registro de pesos y formatos, aplica parámetros configurables y centraliza la información del producto terminado.',
-    benefits: ['Registro móvil de pesos', 'Validación de formatos y parámetros', 'Consulta histórica de registros', 'Información disponible para análisis'],
-    tags: ['Power Apps', 'SQL Server', 'Power Automate'],
-    images: [`${base}img/registro_de_peso(1).png`, `${base}img/registro_de_peso(2).png`, `${base}img/registro_de_peso(3).png`],
-  },
-  {
-    id: 'floracion-cuajado', category: 'Producción agrícola', title: 'Evaluación de floración y cuajado',
-    text: 'Aplicación móvil para registrar estados de floración, cuajado y calidad de racimos por lote, planta y cuadrante directamente en campo.',
-    problem: 'La evaluación de floración y cuajado se realizaba mediante registros manuales, dificultando mantener criterios homogéneos, consolidar resultados y comparar el avance entre lotes y campañas.',
-    solution: 'Aplicación Power Apps conectada a SQL Server que estructura la captura por planta y cuadrante, permite clasificar el estado del racimo y centraliza la información para seguimiento productivo.',
-    benefits: ['Registro por planta y cuadrante', 'Clasificación estandarizada del racimo', 'Cálculo y consolidación de resultados', 'Trazabilidad por lote, fecha y campaña'],
-    tags: ['Power Apps', 'SQL Server'],
-    images: [`${base}img/evaluacion_floracion_cuajado(1).png`, `${base}img/evaluacion_floracion_cuajado(2).png`, `${base}img/evaluacion_floracion_cuajado(3).png`],
-  },
-  {
-    id: 'zonificacion', category: 'Planificación agrícola', title: 'Zonificación y organización de áreas de campo',
-    text: 'Aplicación para registrar y consultar la distribución de sectores, lotes y zonas productivas, facilitando la organización territorial de las operaciones agrícolas.',
-    problem: 'La distribución de zonas y sectores se gestionaba mediante archivos y referencias dispersas, dificultando mantener una estructura uniforme y disponible para los equipos operativos.',
-    solution: 'Aplicación Power Apps que centraliza la zonificación por fundo, lote y sector, permitiendo consultar y actualizar la estructura territorial utilizada por otros procesos agrícolas.',
-    benefits: ['Registro estructurado de zonas', 'Consulta por fundo, lote y sector', 'Catálogo centralizado para otras aplicaciones', 'Mejor organización de la operación de campo'],
-    tags: ['Power Apps', 'SQL Server'],
-    images: [`${base}img/app_zonificacion(1).png`, `${base}img/app_zonificacion(2).png`, `${base}img/app_zonificacion(3).png`],
-  },
-  {
-    id: 'registro-cosecha', category: 'Producción agrícola', title: 'Registro y control de cosecha',
-    text: 'Aplicación móvil para registrar jornadas de cosecha, personal, lotes y cantidades recolectadas directamente desde el campo.',
-    problem: 'Los datos de cosecha se consolidaban desde formatos manuales y diferentes fuentes, generando demoras, duplicidad y poca visibilidad del avance diario.',
-    solution: 'Solución Power Apps conectada a SQL Server que guía el registro de cosecha y centraliza los datos por campaña, fundo, lote, cuadrilla y fecha.',
-    benefits: ['Captura móvil durante la jornada', 'Seguimiento por lote y cuadrilla', 'Validación de datos productivos', 'Información disponible para reportes diarios'],
-    tags: ['Power Apps', 'SQL Server', 'Power Automate'],
-    images: [`${base}img/registro_cosecha(1).png`, `${base}img/registro_cosecha(2).png`, `${base}img/registro_cosecha(3).png`],
-  },
-  {
-    id: 'peso-arandano', category: 'Producción y calidad', title: 'Registro de peso de arándano',
-    text: 'Aplicación para registrar pesos de arándano, formatos de presentación y datos operativos con controles orientados a producción y calidad.',
-    problem: 'El registro de pesos requería consolidar información de diferentes formatos y proveedores, aumentando el riesgo de errores y dificultando la consulta histórica.',
-    solution: 'Aplicación Power Apps integrada con SQL Server que estandariza la captura del peso, aplica parámetros de formato y conserva la trazabilidad de cada registro.',
-    benefits: ['Registro móvil de peso', 'Parámetros configurables por formato', 'Trazabilidad por fecha y usuario', 'Datos centralizados para control y análisis'],
-    tags: ['Power Apps', 'SQL Server'],
-    images: [`${base}img/registro_peso_arandano(1).png`, `${base}img/registro_peso_arandano(2).png`, `${base}img/registro_peso_arandano(3).png`],
-  },
+  { id: 'averias', category: 'Mantenimiento y operaciones', title: 'Gestión y reporte de averías', text: 'Aplicación para registrar incidencias operativas, clasificar componentes afectados y mejorar la comunicación con mantenimiento.', problem: 'Los avisos de averías se comunicaban mediante llamadas, mensajes o registros no estructurados, dificultando el seguimiento y el análisis de incidencias recurrentes.', solution: 'Solución desarrollada en Power Apps para registrar, clasificar y consultar averías, centralizando información técnica, evidencias y responsables.', benefits: ['Registro inmediato de incidencias', 'Clasificación por sistema y componente', 'Trazabilidad de usuario y fecha', 'Consulta histórica para análisis'], tags: ['Power Apps', 'Power Automate', 'SQL Server'], images: [`${base}img/aviso_de_averias(1).png`, `${base}img/aviso_de_averias(2).png`, `${base}img/aviso_de_averias(3).png`] },
+  { id: 'racimos', category: 'Producción agrícola', title: 'Registro y evaluación de racimos por planta', text: 'Aplicación móvil para capturar evaluaciones productivas directamente en campo, organizadas por lote, variedad y planta.', problem: 'Las evaluaciones se registraban en formatos manuales o archivos separados, dificultando la consolidación y trazabilidad de la información de campo.', solution: 'Aplicación Power Apps para digitalizar evaluaciones productivas y centralizar los registros por fundo, lote, variedad y planta.', benefits: ['Captura móvil en campo', 'Validaciones de datos', 'Información centralizada', 'Seguimiento agronómico estructurado'], tags: ['Power Apps', 'SQL Server'], images: [`${base}img/racimo_por_planta(1).png`, `${base}img/racimo_por_planta(2).png`, `${base}img/racimo_por_planta(3).png`] },
+  { id: 'preacondicionamiento', category: 'Operaciones y calidad', title: 'Control del proceso de preacondicionamiento', text: 'Solución para digitalizar registros operativos, aplicar validaciones y centralizar la información del proceso.', problem: 'La información se registraba en formatos manuales o archivos independientes, dificultando su revisión y disponibilidad para otras áreas.', solution: 'Aplicación Power Apps para capturar parámetros operativos, validar campos y mantener un historial centralizado del proceso.', benefits: ['Registro operativo guiado', 'Campos y reglas validadas', 'Historial de actividades', 'Datos preparados para reportes'], tags: ['Power Apps', 'SQL Server'], images: [`${base}img/registro_pre_acondicionamiento(1).png`, `${base}img/registro_pre_acondicionamiento(2).png`, `${base}img/registro_pre_acondicionamiento(3).png`] },
+  { id: 'brotacion', category: 'Producción agrícola', title: 'Evaluación y seguimiento de brotación', text: 'Aplicación de campo para registrar evaluaciones de brotación por lote, válvula, planta y cuadrante con información estructurada.', problem: 'Las evaluaciones de brotación requerían consolidar registros manuales de múltiples plantas y cuadrantes, aumentando el riesgo de omisiones, duplicados y errores de digitación.', solution: 'Aplicación Power Apps que organiza la captura por secuencias de plantas y cuadrantes, aplica validaciones y centraliza los resultados para el seguimiento de campaña.', benefits: ['Registro por planta y cuadrante', 'Generación guiada de secuencias', 'Validación de registros duplicados', 'Trazabilidad por lote y fecha'], tags: ['Power Apps', 'SQL Server'], images: [`${base}img/evaluacion_de_brotacion(1).png`, `${base}img/evaluacion_de_brotacion(2).png`, `${base}img/evaluacion_de_brotacion(3).png`] },
+  { id: 'crecimiento-brote', category: 'Producción agrícola', title: 'Evaluación de crecimiento de brote y racimo', text: 'Solución móvil para registrar mediciones de brotes y racimos, observaciones y datos de evaluación directamente en campo.', problem: 'Las mediciones de crecimiento se recopilaban en formatos separados, dificultando comparar evaluaciones, conservar el orden de captura y disponer de datos consolidados.', solution: 'Aplicación Power Apps conectada a SQL Server para registrar longitud de brotes y racimos, mantener la secuencia de evaluación y consultar información histórica.', benefits: ['Captura de mediciones en campo', 'Orden estructurado de evaluación', 'Registro de observaciones', 'Historial centralizado por campaña'], tags: ['Power Apps', 'SQL Server'], images: [`${base}img/evaluacion_de_crecimiento de_brote(1).png`, `${base}img/evaluacion_de_crecimiento de_brote(2).png`, `${base}img/evaluacion_de_crecimiento de_brote(3).png`] },
+  { id: 'registro-peso', category: 'Producción y calidad', title: 'Registro de peso de producto terminado', text: 'Aplicación para registrar pesos, formatos, proveedores y datos productivos con validaciones orientadas al control de calidad.', problem: 'El control de pesos dependía de registros manuales y archivos dispersos, dificultando validar formatos, consultar históricos y detectar desviaciones durante la operación.', solution: 'Aplicación Power Apps conectada a SQL Server que guía el registro de pesos y formatos, aplica parámetros configurables y centraliza la información del producto terminado.', benefits: ['Registro móvil de pesos', 'Validación de formatos y parámetros', 'Consulta histórica de registros', 'Información disponible para análisis'], tags: ['Power Apps', 'SQL Server', 'Power Automate'], images: [`${base}img/registro_de_peso(1).png`, `${base}img/registro_de_peso(2).png`, `${base}img/registro_de_peso(3).png`] },
+  { id: 'floracion-cuajado', category: 'Producción agrícola', title: 'Evaluación de floración y cuajado', text: 'Aplicación móvil para registrar estados de floración, cuajado y calidad de racimos por lote, planta y cuadrante directamente en campo.', problem: 'La evaluación de floración y cuajado se realizaba mediante registros manuales, dificultando mantener criterios homogéneos, consolidar resultados y comparar el avance entre lotes y campañas.', solution: 'Aplicación Power Apps conectada a SQL Server que estructura la captura por planta y cuadrante, permite clasificar el estado del racimo y centraliza la información para seguimiento productivo.', benefits: ['Registro por planta y cuadrante', 'Clasificación estandarizada del racimo', 'Cálculo y consolidación de resultados', 'Trazabilidad por lote, fecha y campaña'], tags: ['Power Apps', 'SQL Server'], images: [`${base}img/evaluacion_floracion_cuajado(1).png`, `${base}img/evaluacion_floracion_cuajado(2).png`, `${base}img/evaluacion_floracion_cuajado(3).png`] },
+  { id: 'zonificacion', category: 'Planificación agrícola', title: 'Zonificación y organización de áreas de campo', text: 'Aplicación para registrar y consultar la distribución de sectores, lotes y zonas productivas, facilitando la organización territorial de las operaciones agrícolas.', problem: 'La distribución de zonas y sectores se gestionaba mediante archivos y referencias dispersas, dificultando mantener una estructura uniforme y disponible para los equipos operativos.', solution: 'Aplicación Power Apps que centraliza la zonificación por fundo, lote y sector, permitiendo consultar y actualizar la estructura territorial utilizada por otros procesos agrícolas.', benefits: ['Registro estructurado de zonas', 'Consulta por fundo, lote y sector', 'Catálogo centralizado para otras aplicaciones', 'Mejor organización de la operación de campo'], tags: ['Power Apps', 'SQL Server'], images: [`${base}img/app_zonificacion(1).png`, `${base}img/app_zonificacion(2).png`, `${base}img/app_zonificacion(3).png`] },
+  { id: 'registro-cosecha', category: 'Producción agrícola', title: 'Registro y control de cosecha', text: 'Aplicación móvil para registrar jornadas de cosecha, personal, lotes y cantidades recolectadas directamente desde el campo.', problem: 'Los datos de cosecha se consolidaban desde formatos manuales y diferentes fuentes, generando demoras, duplicidad y poca visibilidad del avance diario.', solution: 'Solución Power Apps conectada a SQL Server que guía el registro de cosecha y centraliza los datos por campaña, fundo, lote, cuadrilla y fecha.', benefits: ['Captura móvil durante la jornada', 'Seguimiento por lote y cuadrilla', 'Validación de datos productivos', 'Información disponible para reportes diarios'], tags: ['Power Apps', 'SQL Server', 'Power Automate'], images: [`${base}img/registro_cosecha(1).png`, `${base}img/registro_cosecha(2).png`, `${base}img/registro_cosecha(3).png`] },
+  { id: 'peso-arandano', category: 'Producción y calidad', title: 'Registro de peso de arándano', text: 'Aplicación para registrar pesos de arándano, formatos de presentación y datos operativos con controles orientados a producción y calidad.', problem: 'El registro de pesos requería consolidar información de diferentes formatos y proveedores, aumentando el riesgo de errores y dificultando la consulta histórica.', solution: 'Aplicación Power Apps integrada con SQL Server que estandariza la captura del peso, aplica parámetros de formato y conserva la trazabilidad de cada registro.', benefits: ['Registro móvil de peso', 'Parámetros configurables por formato', 'Trazabilidad por fecha y usuario', 'Datos centralizados para control y análisis'], tags: ['Power Apps', 'SQL Server'], images: [`${base}img/registro_peso_arandano(1).png`, `${base}img/registro_peso_arandano(2).png`, `${base}img/registro_peso_arandano(3).png`] },
+  { id: 'induccion-capacitacion', category: 'Seguridad y desarrollo', title: 'Gestión de inducción y capacitación', text: 'Aplicación para registrar sesiones de inducción, capacitaciones, participantes y evidencias, manteniendo trazabilidad del proceso formativo.', problem: 'Los registros de capacitación se administraban en formatos separados, dificultando comprobar asistencia, contenidos impartidos y cumplimiento por trabajador.', solution: 'Aplicación Power Apps que centraliza la programación y registro de actividades formativas, participantes, responsables y evidencias asociadas.', benefits: ['Registro de sesiones y participantes', 'Control de asistencia', 'Evidencias y trazabilidad', 'Consulta del historial de capacitación'], tags: ['Power Apps', 'Power Automate', 'SQL Server'], images: [`${base}img/induccion_capacitacion(1).png`, `${base}img/induccion_capacitacion(2).png`, `${base}img/induccion_capacitacion(3).png`] },
+  { id: 'inspecciones', category: 'Seguridad y operaciones', title: 'Gestión digital de inspecciones', text: 'Aplicación móvil para ejecutar inspecciones, registrar hallazgos, observaciones y evidencias desde el lugar de trabajo.', problem: 'Las inspecciones en papel o archivos independientes generaban retrasos en la consolidación, poca trazabilidad de hallazgos y dificultad para realizar seguimiento.', solution: 'Solución Power Apps conectada a SQL Server que estructura listas de verificación, captura resultados y centraliza evidencias para consulta y seguimiento.', benefits: ['Inspecciones desde dispositivos móviles', 'Listas de verificación estructuradas', 'Registro de hallazgos y evidencias', 'Historial disponible para seguimiento'], tags: ['Power Apps', 'SQL Server', 'Power Automate'], images: [`${base}img/inspecciones(1).png`, `${base}img/inspecciones(2).png`, `${base}img/inspecciones(3).png`] },
+  { id: 'programa-labores', category: 'Planificación y personal', title: 'Programa de labores y control de asistencia', text: 'Aplicación para planificar labores agrícolas, asignar personal y controlar la asistencia vinculada a cada actividad operativa.', problem: 'La programación de labores y el control de asistencia se gestionaban en fuentes separadas, dificultando relacionar recursos, actividades y cumplimiento diario.', solution: 'Aplicación Power Apps integrada con SQL Server que centraliza la programación, asignación de cuadrillas y registro de asistencia para facilitar el control operativo.', benefits: ['Programación diaria de labores', 'Asignación de personal y cuadrillas', 'Control de asistencia', 'Información consolidada para supervisión'], tags: ['Power Apps', 'SQL Server', 'Power Automate'], images: [`${base}img/programa_labores(1).png`, `${base}img/programa_labores(2).png`, `${base}img/programa_labores(3).png`] },
 ]
 
 const technologies = ['Power Apps', 'Power Automate', 'Power BI', 'SQL Server', 'SharePoint', 'React', 'React Native', 'TypeScript', 'Java', 'Quarkus', 'Docker', 'GitHub']
@@ -156,12 +79,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   return <div className="project-modal-backdrop" role="presentation" onMouseDown={onClose}>
     <section className="project-modal" role="dialog" aria-modal="true" aria-label={project.title} onMouseDown={event => event.stopPropagation()}>
       <button className="modal-close" onClick={onClose} aria-label="Cerrar"><X/></button>
-      <div className="modal-gallery">
-        <img src={project.images[imageIndex]} alt={`${project.title}, pantalla ${imageIndex + 1}`} />
-        <button className="gallery-arrow left" onClick={() => move(-1)} aria-label="Imagen anterior"><ChevronLeft/></button>
-        <button className="gallery-arrow right" onClick={() => move(1)} aria-label="Imagen siguiente"><ChevronRight/></button>
-        <div className="gallery-thumbs">{project.images.map((image, index) => <button key={image} className={index === imageIndex ? 'active' : ''} onClick={() => setImageIndex(index)}><img src={image} alt="" /></button>)}</div>
-      </div>
+      <div className="modal-gallery"><img src={project.images[imageIndex]} alt={`${project.title}, pantalla ${imageIndex + 1}`} /><button className="gallery-arrow left" onClick={() => move(-1)} aria-label="Imagen anterior"><ChevronLeft/></button><button className="gallery-arrow right" onClick={() => move(1)} aria-label="Imagen siguiente"><ChevronRight/></button><div className="gallery-thumbs">{project.images.map((image, index) => <button key={image} className={index === imageIndex ? 'active' : ''} onClick={() => setImageIndex(index)}><img src={image} alt="" /></button>)}</div></div>
       <div className="modal-copy"><span className="section-kicker">{project.category}</span><h2>{project.title}</h2><div className="tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><h3>Problema</h3><p>{project.problem}</p><h3>Solución</h3><p>{project.solution}</p><h3>Funciones y aportes</h3><ul>{project.benefits.map(item => <li key={item}><CheckCircle2/>{item}</li>)}</ul><a className="button button-primary" href="#contacto" onClick={onClose}>Consultar una solución similar <ArrowRight size={18}/></a></div>
     </section>
   </div>
