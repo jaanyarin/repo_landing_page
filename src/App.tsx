@@ -84,6 +84,33 @@ const projects = [
     tags: ['Power Apps', 'SQL Server'],
     images: [`${base}img/evaluacion_floracion_cuajado(1).png`, `${base}img/evaluacion_floracion_cuajado(2).png`, `${base}img/evaluacion_floracion_cuajado(3).png`],
   },
+  {
+    id: 'zonificacion', category: 'Planificación agrícola', title: 'Zonificación y organización de áreas de campo',
+    text: 'Aplicación para registrar y consultar la distribución de sectores, lotes y zonas productivas, facilitando la organización territorial de las operaciones agrícolas.',
+    problem: 'La distribución de zonas y sectores se gestionaba mediante archivos y referencias dispersas, dificultando mantener una estructura uniforme y disponible para los equipos operativos.',
+    solution: 'Aplicación Power Apps que centraliza la zonificación por fundo, lote y sector, permitiendo consultar y actualizar la estructura territorial utilizada por otros procesos agrícolas.',
+    benefits: ['Registro estructurado de zonas', 'Consulta por fundo, lote y sector', 'Catálogo centralizado para otras aplicaciones', 'Mejor organización de la operación de campo'],
+    tags: ['Power Apps', 'SQL Server'],
+    images: [`${base}img/app_zonificacion(1).png`, `${base}img/app_zonificacion(2).png`, `${base}img/app_zonificacion(3).png`],
+  },
+  {
+    id: 'registro-cosecha', category: 'Producción agrícola', title: 'Registro y control de cosecha',
+    text: 'Aplicación móvil para registrar jornadas de cosecha, personal, lotes y cantidades recolectadas directamente desde el campo.',
+    problem: 'Los datos de cosecha se consolidaban desde formatos manuales y diferentes fuentes, generando demoras, duplicidad y poca visibilidad del avance diario.',
+    solution: 'Solución Power Apps conectada a SQL Server que guía el registro de cosecha y centraliza los datos por campaña, fundo, lote, cuadrilla y fecha.',
+    benefits: ['Captura móvil durante la jornada', 'Seguimiento por lote y cuadrilla', 'Validación de datos productivos', 'Información disponible para reportes diarios'],
+    tags: ['Power Apps', 'SQL Server', 'Power Automate'],
+    images: [`${base}img/registro_cosecha(1).png`, `${base}img/registro_cosecha(2).png`, `${base}img/registro_cosecha(3).png`],
+  },
+  {
+    id: 'peso-arandano', category: 'Producción y calidad', title: 'Registro de peso de arándano',
+    text: 'Aplicación para registrar pesos de arándano, formatos de presentación y datos operativos con controles orientados a producción y calidad.',
+    problem: 'El registro de pesos requería consolidar información de diferentes formatos y proveedores, aumentando el riesgo de errores y dificultando la consulta histórica.',
+    solution: 'Aplicación Power Apps integrada con SQL Server que estandariza la captura del peso, aplica parámetros de formato y conserva la trazabilidad de cada registro.',
+    benefits: ['Registro móvil de peso', 'Parámetros configurables por formato', 'Trazabilidad por fecha y usuario', 'Datos centralizados para control y análisis'],
+    tags: ['Power Apps', 'SQL Server'],
+    images: [`${base}img/registro_peso_arandano(1).png`, `${base}img/registro_peso_arandano(2).png`, `${base}img/registro_peso_arandano(3).png`],
+  },
 ]
 
 const technologies = ['Power Apps', 'Power Automate', 'Power BI', 'SQL Server', 'SharePoint', 'React', 'React Native', 'TypeScript', 'Java', 'Quarkus', 'Docker', 'GitHub']
